@@ -1,0 +1,14 @@
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:0 auto;
+
+}
+
+.center{
+    text-align:center;
+}
+
+h1{
+    color:#FF4F60;
+}
