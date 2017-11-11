@@ -58,7 +58,7 @@ button:hover{
 }
 
 /*
-*For swipint
+*For swiping
 */
 
 #container {
@@ -117,7 +117,7 @@ button:hover{
   margin-left: 10px;
   background-size: auto 160% !important;
   background-position: center;
- background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 .like {
