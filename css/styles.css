@@ -23,6 +23,10 @@ p, div {
     font-family: 'Alegreya', 'serif';
 }
 
+button:hover{
+  opacity:0.5 !important;
+}
+
 .button {
     
     font-size:25px;
