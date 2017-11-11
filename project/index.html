@@ -3,15 +3,9 @@
     
     <head>
         <meta charset="utf-8">
-        
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;        user-scalable=0;" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        
     
-        <title>My Food Tinder</title>
+        <title>GETTING STARTED WITH BRACKETS</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="apple-touch-icon-precomposed" href="myicon.png"/>
        <link rel="stylesheet" href="style.css">
   
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
@@ -25,32 +19,39 @@
 
     <div id="container">
 
-        <div class="buddy" style="display: block;">
-            <div id ="avatar" style="display: block;"></div>
+        <div class="buddy"  id="buddy1" style="display: block;">
+            <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
             <div class="info">
-             <h2 id = "restaurantName"></h2>
 
-             <div id = "cuisineType"></div>
-             <div id = "rating"></div>
-             <div id = "priceRange"></div>
-
-             <div class="buttons">
-                 <button class="button left"><left>X</left></button>
-                 <button class="button middle"><center>+</center></button>
-                 <button class="button right"><right>&#9829</right></button>
-                 
-                 
-                 <button id = "swipeLeft" onclick = "updataImage()">Swipe Left</button>
-
-                 <button id = "swipeRight" onclick = "getRestaurants()">Swipe Right</button>
-                 
-                 <button id = "swipeRestLeft" onclick = "updateRestaurants()">Swipe restaurant left</button>
-             </div>
+                <div class = "cuisineType">0</div>
 
             </div>
         </div>
         
+    
+        <div class="buddy" id="buddy2" style="display: block;">
+            <div id ="avatar2" style="display: block;"><img id = "avatar2Pic" src=""/></div>
+                <div class="info">
+
+
+                </div>
+            </div>
         
+        <div class = "restaurantBlocks" id = "restaurant1">
+            <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>
+                <h2 class = "restaurantName"></h2>
+                <div class = "cuisineType">0</div>
+                <div class = "rating"></div>
+                <div class = "priceRange"></div>
+        </div>
+        <div class = "restaurantBlocks" id = "restaurant2">
+            <div class = "restImg" id = "restDiv2"><img id = "restImg2" /></div>
+                <h2 class = "restaurantName"></h2>
+                 <div class = "cuisineType">0</div>
+                 <div class = "rating"></div>
+                 <div class = "priceRange"></div>
+
+        </div>
 
     </div>
 
@@ -58,37 +59,88 @@
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
         <script>
+            $(window).on('touchstart',function(e){e.preventDefault()});
             
             $(document).ready(function(){
 
+            $(".restaurantBlocks").hide();
+                
+            $(".restaurantBlocks").on("swiperight",function(){
+                console.log("rest swiped right");
+                //1. swipe right animation
+                //2. hide all restarants
+                //3. show rest data
+            });
+            $(".restaurantBlocks").on("swipeleft",function(e){
+                //1. get the next data
+                // 2. populate data to next div
+                //3. hide this div
+                //4. show other div
+                
+                var swipedAwayId=e.delegateTarget.id;
+                var otherDiv=document.querySelector(".restaurantBlocks:not(#"+swipedAwayId+")");
+                console.log(swipedAwayId);
+                console.log(otherDiv);
+                
+                updateRestaurants(otherDiv);
+                
+                 $(this).addClass('rotate-right').delay(700).fadeOut(1);
+                $(otherDiv).removeClass('rotate-left rotate-right').fadeIn(300);
+                
+            });
+                
             $(".buddy").on("swiperight",function(){
-                  $(this).addClass('rotate-left').delay(700).fadeOut(1);
+                
+               
+                  $(this).addClass('rotate-left').delay(700).fadeOut(1,function(){
+                      $(".buddy").hide();
+                      console.log("buddy swiped right");
+                      $(".restaurantBlocks").fadeIn();
+                      //load data, shiw the first one
+                      
+                      
+                  });
                   $('.buddy').find('.status').remove();
 
-                  $(this).append('<div class="status like">Like!</div>');      
+                  $(this).append('<div class="status like">Like!</div>'); 
+                /*
                   if ( $(this).is(':last-child') ) {
                     $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
                    } else {
                       $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-                   }
+                   }*/
             });  
+                
+            $(".buddy").on("swipeleft",function(e){
+                var src=updataImage();
+                var swipedAwayId=e.delegateTarget.id;
+                
+                console.log("nextImageSrc",src);
+                console.log("myID",swipedAwayId);
+                console.log("me",e.target);
+                
+                var theOtherBuddy=document.querySelector(".buddy:not(#"+swipedAwayId+")");
+                $(theOtherBuddy).removeClass('rotate-left rotate-right').fadeIn(300);
+                theOtherImg=$(theOtherBuddy).find("img");
+                console.log("theOtherImg",theOtherImg);
+                theOtherImg.attr("src",src);
 
-            $(".buddy").on("swipeleft",function(){
                 $(this).addClass('rotate-right').delay(700).fadeOut(1);
                 $('.buddy').find('.status').remove();
                 $(this).append('<div class="status dislike">Dislike!</div>');
-
-                if ( $(this).is(':last-child') ) {
-                 $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+                /*
+                if ( $(this).is(':last-child') ) {                    
+                 $('.buddy:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300); 
                  } else {
                     $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-                } 
+                } */
+                
               });
 
             });
 
             
-            
+            var divAnimationToggle = true;
             var cuisineCount = -1;
             var cuisine = [];       //array holding the cuisines
             var imageLink = [];     //array containting the image link to the cuisines
@@ -98,20 +150,36 @@
                     csv.map(function(d){
                         cuisine.push(d.CuisineName);
                         imageLink.push(d.CuisineImageLink);
-                    })
+                    });
+                updataImage();
             });
             function updataImage(){
                 cuisineCount++;
+            //    console.log("cuisineC",cuisineCount);
                 currentCuisine = cuisine[cuisineCount];
-                console.log(cuisine[cuisineCount]);
-                console.log(currentCuisine);
-                console.log(imageLink[cuisineCount]);
-                var imageUrl = "url("+imageLink[cuisineCount]+")";
-                console.log(imageUrl);
-                document.getElementById("avatar").style.backgroundImage=imageUrl;
-                document.getElementById("cuisineType").innerHTML =  currentCuisine;;
+        //        console.log(cuisine[cuisineCount]);
+        //        console.log(currentCuisine);
+        //        console.log(imageLink[cuisineCount]);
+    //            var imageUrl = "url("+imageLink[cuisineCount]+")";
+        //        console.log(imageUrl);
+                return  imageLink[cuisineCount];
+                /*
+                if(divAnimationToggle){
+                    
+                    //document.getElementById("buddy1").style.display = "block";
+                    document.getElementById("avatar1Pic").src = imageLink[cuisineCount];
+                    //document.getElementById("buddy2").style.display = "none";
+                    divAnimationToggle = false;
+                    
+                }else{
+                    //document.getElementById("buddy1").style.display = "none";
+                    document.getElementById("avatar2Pic").src =imageLink[cuisineCount];
+                    //document.getElementById("buddy2").style.display = "block";
+                    divAnimationToggle = true;
+                    
+                }*/
+              //  document.getElementById("cuisineType").innerHTML =  currentCuisine;;
             }
-           
             var allRestaurants = new Array(20);
             
             var chineseRestaurants = new Array(20);
@@ -155,6 +223,7 @@
             console.log(allRestaurants);
             var cuisineTypeIndex;
             function getRestaurants(){
+                
                 var cuisineTypes = ["Chinese","Italian","Korean", "Mediterranean", "American", "Cajun", "Greek", "Indian", "Thai", "Vietnamese"];
                
                 for(i = 0; i < cuisineTypes.length; i++){
@@ -167,17 +236,28 @@
                 
             }
     
+            
+            
             restaurantsIndex = 0;
-            function updateRestaurants(){
+            function updateRestaurants(parentDiv){
+                getRestaurants();
+             //   console.log("resturant updating");
+               // console.log(parentDiv);
+            
                 var imageUrl = "url("+allRestaurants[cuisineTypeIndex][restaurantsIndex][3]+")";
-                document.getElementById("avatar").style.backgroundImage=imageUrl;
+                    
+                $(parentDiv).find(".restaurantName").text(allRestaurants[cuisineTypeIndex][restaurantsIndex][0]);
+                $(parentDiv).find(".cuisineType").text(currentCuisine);
+                $(parentDiv).find(".rating").text(allRestaurants[cuisineTypeIndex][restaurantsIndex][1]);
+                $(parentDiv).find(".priceRange").text(allRestaurants[cuisineTypeIndex][restaurantsIndex][2]);
+                 
+                $(parentDiv).find("img").attr("src", allRestaurants[cuisineTypeIndex][restaurantsIndex][3]);
                 
-                document.getElementById("restaurantName").innerHTML = allRestaurants[cuisineTypeIndex][restaurantsIndex][0];
-                document.getElementById("cuisineType").innerHTML =  currentCuisine;
-                document.getElementById("rating").innerHTML = allRestaurants[cuisineTypeIndex][restaurantsIndex][1];
-                document.getElementById("priceRange").innerHTML = allRestaurants[cuisineTypeIndex][restaurantsIndex][2];
+               // document.getElementById("avatar").style.backgroundImage=imageUrl;
                 
+
                 restaurantsIndex++;
+                
             }
              
             
