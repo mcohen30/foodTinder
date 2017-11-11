@@ -1,0 +1,11 @@
+Cuisine,RestaurantName,Rating,Price,RestaurantImageLink,Zip Code
+Italian,Teresa's Caffe,3.5,$$,https://s3-media4.fl.yelpcdn.com/bphoto/_zlfTePtekdcq1fVFF2KIQ/o.jpg,08544
+Italian,Osteria Procaccini,4.5,$$$,https://s3-media3.fl.yelpcdn.com/bphoto/tGlITKfma-qp2bH7X-7WKA/o.jpg,08544
+Italian,Luca's Ristorante,4.5,$$$,https://s3-media2.fl.yelpcdn.com/bphoto/4vdRumH1K0jTKPEoZrvfhg/o.jpg,08544
+Italian,La Mezzaluna Restaurant,3.5,$$,https://s3-media2.fl.yelpcdn.com/bphoto/Gctbq_cCL2Xsv_gQR4p7zg/o.jpg,08544
+Italian,Trattoria Procaccini,3.5,$$,https://s3-media4.fl.yelpcdn.com/bphoto/NfC_z-TsPl44bMcZl_MIHw/o.jpg,08544
+Chinese,Yao's Restaurant,4,$$$$,https://s3-media3.fl.yelpcdn.com/bphoto/_e-qh6EwBHxVIc576d0ceA/o.jpg,08544
+Chinese,Hot Wok Cafe,3.5,$$,https://s3-media3.fl.yelpcdn.com/bphoto/59gVKU_0kq8Kw36LqxyBAA/o.jpg,08544
+Chinese,Shanghai Bun,3.5,$$$$,https://s3-media3.fl.yelpcdn.com/bphoto/0d4yNtwcuO6we-gDBF423g/o.jpg,08544
+Chinese,P.F. Chang's,3,$$,https://s3-media4.fl.yelpcdn.com/bphoto/rdkGeQ08WKKpD-6XFkcVGQ/o.jpg,08544
+Chinese,Tiger Noodles,3,$,https://s3-media2.fl.yelpcdn.com/bphoto/jKL-kCZ7QFDBfnkfB6JK-Q/o.jpg,08544
