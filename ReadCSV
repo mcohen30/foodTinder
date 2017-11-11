@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+     <!--  <link rel="stylesheet" href="main.css">-->
+       
+        
+        
+    </head>
+    <style>
+        /*
+        table {
+          margin: 0 auto;
+          text-align: center;
+          border-collapse: collapse;
+          border: 1px solid #d4d4d4;
+        }
+
+        tr:nth-child(even) {
+          background: #d4d4d4;
+        }
+
+        th, td {
+          padding: 10px 30px;
+        }
+
+        th {
+          border-bottom: 1px solid #d4d4d4;
+        }   
+*/
+    </style>
+    <body>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         <script>
+             
+             //hiding a button
+             $(document).ready(function(){
+                $("button").click(function(){
+                    $("p").hide();
+                });
+            });
+             
+             //reading a csv file and 
+            $.ajax({
+              url: 'foodTinder - Cuisine.csv',
+              dataType: 'text',
+            }).done(processCuisine);  
+            
+             var arr;
+             function processCuisine(data) {
+              
+                  var allRows = data.split(/\r?\n|\r/);
+                  arr = new Array(allRows.length);
+                // var table = '<tablbnbe>';
+             
+                for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+                    var rowCells = allRows[singleRow].split(',');
+                   // console.log(rowCells[0]);
+                    arr[singleRow] = rowCells;
+                 }
+                 $('body').append(arr);
+               //  console.log(arr[2][0]);
+             }
+             
+             $.ajax({
+              url: 'foodTinder - Restaurant.csv',
+              dataType: 'text',
+            }).done(processResturant);  
+             
+             var resturants;
+             function processResturant(data){
+                 var allRows = data.split(/\r?\n|\r/);
+                 resturants = new Array(allRows.length);
+                 
+                 for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
+                    var rowCells = allRows[singleRow].split(',');
+                   // console.log(rowCells[0]);
+                    resturants[singleRow-1] = rowCells;
+                 }
+                 $('body').append(resturants);
+                 console.log(resturants[0][0]);
+             }
+             
+             //Gets the list of resturants from the cuisine param
+             var resultRest;
+             function getResturants(cuisine){
+                 resultRest = new Array(resturants.length);
+                 for(i = 0; i < arr.length; i++){
+                    if(resturants[i][0] == cuisine){
+                        resultRest[0] = resturants[i];
+                    }
+                 }
+             }
+            
+        </script>
+        <h2>This is a heading</h2>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+
+        <button>Click me</button>
+    </body>
+</html>
+
