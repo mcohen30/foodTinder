@@ -82,7 +82,7 @@ p, div {
   cursor: hand;
 }
 .info{
-    color: green;
+    color:black;
 }
 .rotate-left {
   transform: rotate(30deg) scale(0.8);
