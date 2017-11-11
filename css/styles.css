@@ -10,17 +10,20 @@
     text-align:center;
 }
 
+
 h1{
     color:#FF4F60;
-    font-family:'Roboto', 'sans-serif';
+    font-family: 'Roboto', serif;
 }
 
 h2{
-    font-family: 'Alegreya', 'serif';
+    font-family: 'Roboto', 'serif';
+    color:#606061;
 }
 
 p, div {
-    font-family: 'Alegreya', 'serif';
+    font-family: 'Roboto', 'serif';
+    color:#606061;
 }
 
 button:hover{
@@ -35,6 +38,7 @@ button:hover{
     background-color:red;
     display:inline-block !important;
     margin-top: 15px !important;
+    border-radius:30px !important;
     
 }
 
