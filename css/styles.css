@@ -15,10 +15,36 @@ h1{
     font-family:'Roboto', 'sans-serif';
 }
 
-h3 {
+h2{
     font-family: 'Alegreya', 'serif';
 }
 
 p, div {
     font-family: 'Alegreya', 'serif';
 }
+
+.button {
+    
+    font-size:25px;
+    margin-top:10px;
+    
+}
+
+.left {
+    background-color:#FF4F60;
+    color:white;
+}
+
+.right {
+    background-color:#00D694;
+    color:white;
+}
+
+.middle {
+    background-color:#FFCF5A;
+    color:white;
+    
+}
+
+
+
