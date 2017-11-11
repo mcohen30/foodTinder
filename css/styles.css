@@ -1,8 +1,11 @@
+
+
 .container{
     width:90%;
     max-width:1000px;
     margin:0 auto;
     padding-bottom:30px;
+
 }
 
 .center{
@@ -14,10 +17,7 @@
   padding:10px;
   background-color:white;
   margin-bottom:50px;
-}
-
-aside {
-  margin-left:30px;
+  width:500px;
 }
 
 h1{
@@ -83,6 +83,7 @@ button:hover{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+   
 }
 .buddy {
   display: none;
