@@ -2,7 +2,6 @@
     width:90%;
     max-width:1000px;
     margin:0 auto;
-
 }
 
 .center{
@@ -11,4 +10,13 @@
 
 h1{
     color:#FF4F60;
+    font-family:'Roboto', 'sans-serif';
+}
+
+h3 {
+    font-family: 'Alegreya', 'serif';
+}
+
+p {
+    font-family: 'Alegreya', 'serif';
 }
