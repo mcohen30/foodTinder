@@ -2,7 +2,6 @@
     width:90%;
     max-width:1000px;
     margin:0 auto;
-    border: 1px solid;
     padding-bottom:30px;
 }
 
@@ -10,6 +9,16 @@
     text-align:center;
 }
 
+.info-page {
+  border:1px solid gray;
+  padding:10px;
+  background-color:white;
+  margin-bottom:50px;
+}
+
+aside {
+  margin-left:30px;
+}
 
 h1{
     color:#FF4F60;
@@ -21,7 +30,7 @@ h2{
     color:#606061;
 }
 
-p, div {
+p, div, span {
     font-family: 'Roboto', 'serif';
     color:#606061;
 }
@@ -35,7 +44,6 @@ button:hover{
     font-size:25px;
     margin-top:10px;
     max-width: 60px;
-    background-color:red;
     display:inline-block !important;
     margin-top: 15px !important;
     border-radius:30px !important;
