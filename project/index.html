@@ -20,7 +20,7 @@
     <div id="container">
 
         <div class="buddy" style="display: block;">
-            <div id="picture" style="display: block;"></div>
+            <div id ="avatar" style="display: block;"></div>
             <div class="info">
              <h2 id = "restaurantName"></h2>
 
@@ -52,7 +52,7 @@
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
         <script>
-            /*
+            
             $(document).ready(function(){
 
             $(".buddy").on("swiperight",function(){
@@ -81,7 +81,7 @@
 
             });
 
-            */
+            
             
             var cuisineCount = -1;
             var cuisine = [];       //array holding the cuisines
@@ -102,7 +102,7 @@
                 console.log(imageLink[cuisineCount]);
                 var imageUrl = "url("+imageLink[cuisineCount]+")";
                 console.log(imageUrl);
-                document.getElementById("picture").style.backgroundImage=imageUrl;
+                document.getElementById("avatar").style.backgroundImage=imageUrl;
                 document.getElementById("cuisineType").innerHTML =  currentCuisine;;
             }
            
@@ -164,7 +164,7 @@
             restaurantsIndex = 0;
             function updateRestaurants(){
                 var imageUrl = "url("+allRestaurants[cuisineTypeIndex][restaurantsIndex][3]+")";
-                document.getElementById("picture").style.backgroundImage=imageUrl;
+                document.getElementById("avatar").style.backgroundImage=imageUrl;
                 
                 document.getElementById("restaurantName").innerHTML = allRestaurants[cuisineTypeIndex][restaurantsIndex][0];
                 document.getElementById("cuisineType").innerHTML =  currentCuisine;
