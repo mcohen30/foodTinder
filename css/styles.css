@@ -20,6 +20,10 @@
   width:500px;
 }
 
+a {
+  text-decoration:none;
+}
+
 h1{
     color:#FF4F60;
     font-family: 'Roboto', serif;
@@ -43,10 +47,10 @@ button:hover{
     
     font-size:25px;
     margin-top:10px;
-    max-width: 60px;
+    width: 60px;
     display:inline-block !important;
     margin-top: 15px !important;
-    border-radius:30px !important;
+    border-radius:50px !important;
     
 }
 
@@ -83,7 +87,7 @@ button:hover{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-   
+
 }
 .buddy {
   display: none;
