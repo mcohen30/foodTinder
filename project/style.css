@@ -1,55 +1,81 @@
+
 .container{
     width:90%;
     max-width:1000px;
     margin:0 auto;
-    border: 1px solid;
     padding-bottom:30px;
+
 }
 
 .center{
     text-align:center;
 }
 
+.info-page {
+  border:1px solid gray;
+  padding:10px;
+  background-color:white;
+  margin-bottom:50px;
+  width:500px;
+}
+
 h1{
     color:#FF4F60;
-    font-family:'Roboto', 'sans-serif';
+    font-family: 'Roboto', serif;
 }
 
 h2{
-    font-family: 'Alegreya', 'serif';
+    font-family: 'Roboto', 'serif';
+    color:#606061;
 }
 
-p, div {
-    font-family: 'Alegreya', 'serif';
+p, div, span {
+    font-family: 'Roboto', 'serif';
+    color:#606061;
+}
+
+button:hover{
+  opacity:0.5 !important;
 }
 
 .button {
     
     font-size:25px;
     margin-top:10px;
+    width: 60px !important;
+    display:inline-block !important;
+    margin-top: 15px !important;
+    border-radius:30px !important;
     
 }
 
+a {
+  text-decoration:none !important;
+}
+
+
+
 .left {
-    background-color:#FF4F60;
-    color:white;
+    background-color:#FF4F60 !important;
+    color:white !important;
 }
 
 .right {
-    background-color:#00D694;
-    color:white;
+    background-color:#00D694 !important;
+    color:white !important;
 }
 
 .middle {
-    background-color:#FFCF5A;
-    color:white; 
+    background-color:#FFCF5A !important;
+    color:white !important; 
 }
 
 /*
-*For swipint
+*For swiping
 */
 
 #container {
+
   width: 500px;
   margin: auto !important;
   display: block;
@@ -62,25 +88,23 @@ p, div {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
 
-.buddy {
+}
+.buddy, .restaurantBlocks {
   display: none;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 50px rgba(0,0,0,0.2);
   color: #fff;
   padding: 5px;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   width: 460px;
   height: 360px;
-  top: 50px;
-  left: 50px;
   position: absolute;
   cursor: hand;
 }
 .info{
-    color: green;
+    color:black;
 }
 .rotate-left {
   transform: rotate(30deg) scale(0.8);
@@ -90,7 +114,6 @@ p, div {
   opacity: 0;
   z-index: 10;
 }
-
 .rotate-right {
   transform: rotate(-30deg) scale(0.8);
   transition: 1s;
@@ -99,16 +122,16 @@ p, div {
   cursor: w-resize;
   z-index: 10;
 }
-#cuisinePic {
+#avatar1,#avatar2,#restDiv1,#restDiv2 {
   background: #222;
   width: 440px;
   height: 340px;
   display: block;
   margin-top: 10px;
   margin-left: 10px;
-  background-size: auto 160% !important;
+  background-size: auto 100% !important;
   background-position: center;
- background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
 
 .like {
@@ -123,7 +146,6 @@ p, div {
   right: 40px;
   text-shadow: none;
 }
-
 .dislike {
   border-radius: 5px;
   padding: 5px 10px;
@@ -137,4 +159,15 @@ p, div {
   text-shadow: none;
 }
 
+#avatar1Pic, #avatar2Pic{
+  
+  max-width: 440px;
+  max-height: 340px;
+}
+
+#restImg1, #restImg2{
+  
+  max-width: 440px;
+  max-height: 340px;
+}
 
