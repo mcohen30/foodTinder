@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
     
-        <title>GETTING STARTED WITH BRACKETS</title>
+        <title>FoodMe</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
        <link rel="stylesheet" href="style.css">
   
@@ -14,16 +14,15 @@
     <body>
        
         
-    <h1 class="center">Tinder For Food</h1>
+    <h1 class="center">FoodMe</h1>
         
-
     <div id="container">
 
         <div class="buddy"  id="buddy1" style="display: block;">
             <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
             <div class="info">
 
-                <div class = "cuisineType">0</div>
+                <div class = "cuisineType"></div>
 
             </div>
         </div>
@@ -67,6 +66,7 @@
                 
             $(".restaurantBlocks").on("swiperight",function(){
                 console.log("rest swiped right");
+               
                 //1. swipe right animation
                 //2. hide all restarants
                 //3. show rest data
