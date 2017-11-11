@@ -30,6 +30,7 @@ p, div {
     max-width: 60px;
     background-color:red;
     display:inline-block !important;
+    margin-top: 15px !important;
     
 }
 
