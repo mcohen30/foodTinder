@@ -25,32 +25,9 @@
         <div class="buddy" style="display: block;">
             <div id="cuisinePic" style="display: block;"></div>
             <div class="info">
-            
-            </div>
-        </div>
-        <div class="buddy">
-            <div class="avatar" style="display: block; background-image: url(images/pizza.jpg)"></div>
-        </div>
+             <h2 id = "restaurantName">Restaurant Name</h2>
 
-        <div class="buddy">
-            <div class="avatar" style="display: block; background-image: url(images/spaghetti.jpg)"></div>
-        </div>
-
-        <div class="buddy">
-            <div class="avatar" style="display: block; background-image: url(images/taco.jpg)"></div>
-        </div>
-
-        <div class="buddy">
-            <div class="avatar" style="display: block; background-image: url(images/burger.jpg)"></div>
-        </div>  
-
-        
-
-    </div>
-
-         <h2>Restaurant Name</h2>
-
-             <div>Type of Cuisine: Whatever</div>
+             <div>Type of Cuisine: </div>
              <div>Rating: &#9733 &#9733 &#9733 &#9734 &#9734</div>
              <div>Price Range: &25 - $55</div>
 
@@ -58,11 +35,23 @@
                  <button class="button left"><left>X</left></button>
                  <button class="button middle"><center>+</center></button>
                  <button class="button right"><right>&#9829</right></button>
+                 
+                 
+                 <button id = "swipeLeft" onclick = "updataImage()">Swipe Left</button>
+
+                 <button id = "swipeRight" onclick = "getRestaurants()">Swipe Right</button>
+                 
+                 <button id = "swipeRestLeft" onclick = "updateRestaurants()">Swipe restaurant left</button>
              </div>
 
-         <button id = "swipeLeft" onclick = "updataImage()">Swipe Left</button>
+            </div>
+        </div>
+        
+        
 
-         <button id = "swipeRight" onclick = "getRestaurants()">Swipe Right</button>
+    </div>
+
+        
 
         
         <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -126,148 +115,27 @@
             allRestaurants[0] = chineseRestaurants;
             allRestaurants[1] = italianRestaurants;
             console.log(allRestaurants);
-            
-            var cuisineTypes = ["Italian","Chinese","Korean", "Mediterranean", "American", "Cajun", "Greek", "Indian", "Thai", "Vietnamese"];
             var cuisineTypeIndex;
-            for(i = 0; i < cuisineTypes.length; i++){
-                if(currentCuisine == cuisineTypes[i]){
-                    cuisineTypeIndex = i;
-                }
-            }
             function getRestaurants(){
-                var resturantCount = 0;
-                
-                
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            /*
-            d3.csv('foodTinder - Cuisine.csv', function(error, data) { 
-    
-                buttonCall(cuisine); 
-
-            });  
-            
-            function buttonCall(){
-                d3.csv('foodTinder - Cuisine.csv', function(error, data) {
-                    console.log(data);
-                    console.log(data[0]);
-                    var picIndex = 0;
-                    var imageUrl = "url("+data[picIndex][1]+")";
-                    document.getElementById("cuisinePic").style.backgroundImage=imageUrl;
-                    picIndex++;
-                }
-            );
-            }
-                
-            */
-            
-            //console.log(globalData);
-            
-            
-            /*
-            $.ajax({
-              url: 'foodTinder - Cuisine.csv',
-              dataType: 'text',
-            }).done(processCuisine);  
-             
-             function processCuisine(data) {
-              
-                  var allRows = data.split(/\r?\n|\r/);
-                  cuisine = new Array(allRows.length);
-                // var table = '<tablbnbe>';
-             
-                for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
-                    var rowCells = allRows[singleRow].split(',');
-                   // console.log(rowCells[0]);
-                    cuisine[singleRow-1] = rowCells;
-                 }
-               //  $('body').append(cuisine);
-                 
-                 
-                 //loops through the cuisine pictures until a right swipe is detected
-                  var picIndex = 0;
-                  var imageUrl = "url("+cuisine[picIndex][1]+")";
-                  document.getElementById("cuisinePic").style.backgroundImage=imageUrl;
-                  picIndex++;
-                  
-                      
-                     
-             }
-
-        
-             var allResturants;     //Array containing all the resturants in the database
-             
-             var resturants;        //Array holding all data for resturants of a specfic param cuisine. Length indicates number of resturnants of param cuisine
-                                    //resturnats[0][0] = cusine, resturants[0][1] = name of resturant, resturants[0][2] = rating, [0[3] = imagelink, [0][4] = zip cod       
-             
-            
-            var a = 0;
-            
-            
-            
-            var swipeRight = false;
-            //hiding a button
-             $(document).ready(function(){
-                $("button").click(function(){
-                    $("p").hide();
-                });
-            });
-             
-             //reading a csv file and 
-           
-                
-                
-                 
-             
-             
-             $.ajax({
-              url: 'foodTinder - Restaurant.csv',
-              dataType: 'text',
-            }).done(processResturant);  
-             
-             
-             function processResturant(data){
-                 var allRows = data.split(/\r?\n|\r/);
-                 allResturants = new Array(allRows.length);
-                 
-                 for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
-                    var rowCells = allRows[singleRow].split(',');
-                   // console.log(rowCells[0]);
-                    allResturants[singleRow-1] = rowCells;
-                 }
-                 $('body').append(allResturants);
-                 //console.log(allResturants);
-             }
-             
-             //Gets the list of resturants from the cuisine params
-             function getResturants(cuisine){
-                 resultRest = new Array(allResturants.length);
-                 for(i = 0; i < cuisine.length; i++){
-                    if(allResturants[i][0] == cuisine){
-                        resultRest[0] = allResturants[i];
+                var cuisineTypes = ["Chinese","Italian","Korean", "Mediterranean", "American", "Cajun", "Greek", "Indian", "Thai", "Vietnamese"];
+               
+                for(i = 0; i < cuisineTypes.length; i++){
+                    if(currentCuisine == cuisineTypes[i]){
+                        cuisineTypeIndex = i;
                     }
-                 }
-             }
-             
-             // 1. Display images until a swipe right is detected
-             // 2. call getResturants(cuisine) of the cuisine picture for the swipped right image
-             
-            // boolean swipeRight = false;
-             
-                 
-                 var picIndex = 0;
-                //$("#cuisinePic").attr('src', cuisine[1][1]);
+                }
+                console.log(currentCuisine+" cuisine selected, its cuisine index is "+cuisineTypeIndex);
                 
-            */ 
-             
+                
+            }
+            restaurantsIndex = 0;
+            function updateRestaurants(){
+                var imageUrl = "url("+allRestaurants[cuisineTypeIndex][restaurantsIndex][3]+")";
+                document.getElementById("cuisinePic").style.backgroundImage=imageUrl;
+                
+                document.getElementById("restaurantName").innerHTML = allRestaurants[cuisineTypeIndex][restaurantsIndex][0];
+                restaurantsIndex++;
+            }
              
             
         </script>
