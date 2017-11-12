@@ -3,23 +3,27 @@
     
     <head>
         <meta charset="utf-8">
-        <title>FoodMe</title>
-        <link rel="stylesheet" href="style.css">
+    
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+       <link rel="stylesheet" href="style.css">
+  
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
 
     </head>
-
     <body>
+       
         
-    <h1 class="center">FoodMe</h1>
+    <h1 class="center">Tinder For Food</h1>
         
+
     <div id="container">
 
         <div class="buddy"  id="buddy1" style="display: block;">
             <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
             <div class="info">
 
-                <div class = "cuisineType"></div>
+                <div class = "cuisineType">0</div>
 
             </div>
         </div>
@@ -35,19 +39,17 @@
         
         <div class = "restaurantBlocks" id = "restaurant1">
             <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>
-    
                 <h2 class = "restaurantName"></h2>
-                <div>Cuisine: <span class = "cuisineType">0</span></div>
-                <div>Rating: <span class = "rating"></span></div>
-                <div>Price Range: <span class = "priceRange"></span></div>
-                
+                <div class = "cuisineType">0</div>
+                <div class = "rating"></div>
+                <div class = "priceRange"></div>
         </div>
         <div class = "restaurantBlocks" id = "restaurant2">
             <div class = "restImg" id = "restDiv2"><img id = "restImg2" /></div>
                 <h2 class = "restaurantName"></h2>
-                <div>Cuisine: <span class = "cuisineType">0</span></div>
-                <div>Rating: <span class = "rating"></span></div>
-                <div>Price Range: <span class = "priceRange"></span></div>
+                 <div class = "cuisineType">0</div>
+                 <div class = "rating"></div>
+                 <div class = "priceRange"></div>
 
         </div>
 
@@ -65,7 +67,6 @@
                 
             $(".restaurantBlocks").on("swiperight",function(){
                 console.log("rest swiped right");
-               
                 //1. swipe right animation
                 //2. hide all restarants
                 //3. show rest data
@@ -127,12 +128,6 @@
                 $(this).addClass('rotate-right').delay(700).fadeOut(1);
                 $('.buddy').find('.status').remove();
                 $(this).append('<div class="status dislike">Dislike!</div>');
-                /*
-                if ( $(this).is(':last-child') ) {                    
-                 $('.buddy:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300); 
-                 } else {
-                    $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-                } */
                 
               });
 
@@ -154,30 +149,8 @@
             });
             function updataImage(){
                 cuisineCount++;
-            //    console.log("cuisineC",cuisineCount);
                 currentCuisine = cuisine[cuisineCount];
-        //        console.log(cuisine[cuisineCount]);
-        //        console.log(currentCuisine);
-        //        console.log(imageLink[cuisineCount]);
-    //            var imageUrl = "url("+imageLink[cuisineCount]+")";
-        //        console.log(imageUrl);
                 return  imageLink[cuisineCount];
-                /*
-                if(divAnimationToggle){
-                    
-                    //document.getElementById("buddy1").style.display = "block";
-                    document.getElementById("avatar1Pic").src = imageLink[cuisineCount];
-                    //document.getElementById("buddy2").style.display = "none";
-                    divAnimationToggle = false;
-                    
-                }else{
-                    //document.getElementById("buddy1").style.display = "none";
-                    document.getElementById("avatar2Pic").src =imageLink[cuisineCount];
-                    //document.getElementById("buddy2").style.display = "block";
-                    divAnimationToggle = true;
-                    
-                }*/
-              //  document.getElementById("cuisineType").innerHTML =  currentCuisine;;
             }
             var allRestaurants = new Array(20);
             
@@ -235,12 +208,11 @@
                 
             }
     
+            
+            
             restaurantsIndex = 0;
-
             function updateRestaurants(parentDiv){
                 getRestaurants();
-             //   console.log("resturant updating");
-               // console.log(parentDiv);
             
                 var imageUrl = "url("+allRestaurants[cuisineTypeIndex][restaurantsIndex][3]+")";
                     
@@ -251,9 +223,6 @@
                  
                 $(parentDiv).find("img").attr("src", allRestaurants[cuisineTypeIndex][restaurantsIndex][3]);
                 
-               // document.getElementById("avatar").style.backgroundImage=imageUrl;
-                
-
                 restaurantsIndex++;
                 
             }
