@@ -1,5 +1,5 @@
 Cuisine,RestaurantName,Rating,Price,RestaurantImageLink,Zip Code
-Italian,Teresa's Caffe,3.5,$$,https://s3-media4.fl.yelpcdn.com/bphoto/_zlfTePtekdcq1fVFF2KIQ/o.jpg,08544
+Italian,Teresa's Caffe,3.5,$$,http://slice.seriouseats.com/images/2012/07/20120704-213017-teresa-caffe-perfetta.jpg,08544
 Italian,Osteria Procaccini,4.5,$$$,https://s3-media3.fl.yelpcdn.com/bphoto/tGlITKfma-qp2bH7X-7WKA/o.jpg,08544
 Italian,Luca's Ristorante,4.5,$$$,https://s3-media2.fl.yelpcdn.com/bphoto/4vdRumH1K0jTKPEoZrvfhg/o.jpg,08544
 Italian,La Mezzaluna Restaurant,3.5,$$,https://s3-media2.fl.yelpcdn.com/bphoto/Gctbq_cCL2Xsv_gQR4p7zg/o.jpg,08544
@@ -9,3 +9,13 @@ Chinese,Hot Wok Cafe,3.5,$$,https://s3-media3.fl.yelpcdn.com/bphoto/59gVKU_0kq8K
 Chinese,Shanghai Bun,3.5,$$$$,https://s3-media3.fl.yelpcdn.com/bphoto/0d4yNtwcuO6we-gDBF423g/o.jpg,08544
 Chinese,P.F. Chang's,3,$$,https://s3-media4.fl.yelpcdn.com/bphoto/rdkGeQ08WKKpD-6XFkcVGQ/o.jpg,08544
 Chinese,Tiger Noodles,3,$,https://s3-media2.fl.yelpcdn.com/bphoto/jKL-kCZ7QFDBfnkfB6JK-Q/o.jpg,08544
+Korean,SooJa's Cafe,3.5,$$,https://s3-media2.fl.yelpcdn.com/bphoto/vmOWwTJcI_ulGDRZoWfOAA/o.jpg,8544
+Korean,Roots,4,$$,https://s3-media1.fl.yelpcdn.com/bphoto/lDFqeil_YDveS9Q-zvMcjQ/o.jpg,8544
+Japanese,Nassau Sushi,3.5,$$,https://s3-media4.fl.yelpcdn.com/bphoto/gyFb1qj9Zhbd1Munx9fW3A/o.jpg,8544
+Japanese,Asian Bistro,4,$$,https://s3-media3.fl.yelpcdn.com/bphoto/KzRBukw11lgawiXC-0XDnw/o.jpg,8544
+Japanese,Ajiten,3.5,$$,https://s3-media2.fl.yelpcdn.com/bphoto/bglVumnntLpae61QEZaxvQ/o.jpg,8544
+American,30 Burger,4,$,https://s3-media3.fl.yelpcdn.com/bphoto/QNpSDTpcDdHFGxgEvl9dcw/o.jpg,8544
+American,Say Cheez,4,$$,https://s3-media3.fl.yelpcdn.com/bphoto/wznUO5dn2fSNCs7k-isVbg/o.jpg,8544
+American,Agricola Eatry,4,$$$,https://s3-media2.fl.yelpcdn.com/bphoto/XNBlkSJc9tnNYYuVQiCcVw/o.jpg,8544
+Mexican,Chapin Guatemalan,4,$,https://s3-media2.fl.yelpcdn.com/bphoto/L2YSbiY369g09cKKvfdwOg/o.jpg,8544
+Mexican,Tortuga's Mexican Village,3.5,$$,https://www.yelp.com/biz/tortugas-mexican-village-princeton-2?osq=Mexican+Food,8544
