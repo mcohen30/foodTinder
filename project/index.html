@@ -3,16 +3,13 @@
     
     <head>
         <meta charset="utf-8">
-    
         <title>FoodMe</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-       <link rel="stylesheet" href="style.css">
-  
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
 
     </head>
+
     <body>
-       
         
     <h1 class="center">FoodMe</h1>
         
@@ -38,10 +35,12 @@
         
         <div class = "restaurantBlocks" id = "restaurant1">
             <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>
+    
                 <h2 class = "restaurantName"></h2>
-                <div class = "cuisineType">0</div>
-                <div class = "rating"></div>
-                <div class = "priceRange"></div>
+                <div>Cuisine: <span class = "cuisineType">0</span></div>
+                <div>Rating: <span class = "rating"></span></div>
+                <div>Price Range: <span class = "priceRange"></span></div>
+                
         </div>
         <div class = "restaurantBlocks" id = "restaurant2">
             <div class = "restImg" id = "restDiv2"><img id = "restImg2" /></div>
@@ -236,9 +235,8 @@
                 
             }
     
-            
-            
             restaurantsIndex = 0;
+
             function updateRestaurants(parentDiv){
                 getRestaurants();
              //   console.log("resturant updating");
