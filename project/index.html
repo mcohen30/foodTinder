@@ -4,8 +4,7 @@
     <head>
         <meta charset="utf-8">
     
-        <title>GETTING STARTED WITH BRACKETS</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <title>FoodMe</title>
        <link rel="stylesheet" href="style.css">
   
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
@@ -14,13 +13,13 @@
     <body>
        
         
-    <h1 class="center">Tinder For Food</h1>
+    <h1 class="center">FoodMe</h1>
         
 
     <div id="container">
          <div class = "information">
-            <div id = "randomInfo">
-                <div class="container info-page final">
+            
+            <div class="container info-page final">
                 <h2 class="center">Teresa Caffe</h2>
 
             <div class="center">
@@ -48,44 +47,46 @@
 
             </div>
         </div>
-    </div>
 
         <div class="buddy"  id="buddy1" style="display: block;">
-            <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
-            <div class="info">
-
-                <div class = "cuisineType"></div>
-
+            <div id ="avatar1" class="avatar" style="display: block;">
+                <h4><span>What do I want to eat today?</span></h4>
+                <h3><span class = "cuisineType"></span></h3>
+                <img id = "avatar1Pic" src=""/>
+                 
+            </div>    <!--The tag for cuisine picture-->
+                                                      <!--The tag for cuisine type text-->
+        </div>
+        
+        <div class="buddy" id="buddy2" style="display: block;">
+            <div id ="avatar2" style="display: block;"><!--The tag for cuisine picture-->
+                <h4><span>What do I want to eat today?</span></h4>
+                 <h3><span class = "cuisineType"></span></h3>   
+                <img id = "avatar2Pic" src=""/><!--The tag for cuisine picture-->
             </div>
         </div>
         
-    
-        <div class="buddy" id="buddy2" style="display: block;">
-            <div id ="avatar2" style="display: block;"><img id = "avatar2Pic" src=""/></div>
-                <div class="info">
-
-
-                </div>
-            </div>
-        
         <div class = "restaurantBlocks" id = "restaurant1">
-            <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>
+            <h4><span>I want some...</span></h4>
+            <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>        <!--The tag for restaurant picture. restImg1 is the picture of restarants-->
                 <h2 class = "restaurantName"></h2>
-                <div class = "cuisineType"></div>
-                <div class = "rating"></div>
+                <h3><div class = "cuisineType"></div></h3>
+                <div class = "rating">
+                    <img id = "ratingPic1" />
+                </div>
                 <div class = "priceRange"></div>
         </div>
         <div class = "restaurantBlocks" id = "restaurant2">
+            <h4><span>I want some...</span></h4>
             <div class = "restImg" id = "restDiv2"><img id = "restImg2" /></div>
-                <h2 class = "restaurantName"></h2>
-                 <div class = "cuisineType">0</div>
-                 <div class = "rating"></div>
+                <h2 class = "restaurantName"><h3><div class = "cuisineType"></div></h3></h2>
+                 
+                 <div class = "rating">
+                     <img id = "ratingPic2" />
+                </div>
                  <div class = "priceRange"></div>
-
         </div>
         
-       
-
     </div>
 
         <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -96,29 +97,16 @@
             $(window).on('touchstart',function(e){e.preventDefault()});
             
             $(document).ready(function(){
-
             $(".restaurantBlocks").hide();
             $(".buddy").show();
             $(".information").hide();
                
             $(".restaurantBlocks").on("swiperight",function(){
                 console.log("rest swiped right");
-                //1. swipe right animation
-                //2. hide all restarants
-                //3. show rest data
-              //  $(".information").show();
-              //  document.getElementById("randomInfo").setAttribute("text", "hello");
                  $(".information").show();
                  $(".restaurantBlocks").hide();
-                // $(".information").find("#randomInfo").text("what up");
-                
             });
             $(".restaurantBlocks").on("swipeleft",function(e){
-                //1. get the next data
-                // 2. populate data to next div
-                //3. hide this div
-                //4. show other div
-                
                 var swipedAwayId=e.delegateTarget.id;
                 var otherDiv=document.querySelector(".restaurantBlocks:not(#"+swipedAwayId+")");
                 console.log(swipedAwayId);
@@ -143,39 +131,34 @@
                       
                   });
                   $('.buddy').find('.status').remove();
-
                   $(this).append('<div class="status like">Like!</div>'); 
-                /*
-                  if ( $(this).is(':last-child') ) {
-                    $('.buddy:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-                   } else {
-                      $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-                   }*/
+               
             });  
                 
             $(".buddy").on("swipeleft",function(e){
                 var src=updataImage();
                 var swipedAwayId=e.delegateTarget.id;
                 
-                console.log("nextImageSrc",src);
-                console.log("myID",swipedAwayId);
-                console.log("me",e.target);
+                //console.log("nextImageSrc",src);
+                //console.log("myID",swipedAwayId);
+                //console.log("me",e.target);
                 
                 var theOtherBuddy=document.querySelector(".buddy:not(#"+swipedAwayId+")");
                 $(theOtherBuddy).removeClass('rotate-left rotate-right').fadeIn(300);
                 theOtherImg=$(theOtherBuddy).find("img");
-                console.log("theOtherImg",theOtherImg);
+             //   console.log("theOtherImg",theOtherImg);
                 theOtherImg.attr("src",src);
-                $(theOtherBody).find("cuisineType").text(currentCuisine)
-
+                
+                console.log(currentCuisine);
+                $(theOtherBuddy).find(".cuisineType").text(currentCuisine)
+                console.log($(theOtherBuddy).find(".cuisineType"));
+                
                 $(this).addClass('rotate-right').delay(700).fadeOut(1);
                 $('.buddy').find('.status').remove();
                 $(this).append('<div class="status dislike">Dislike!</div>');
                 
               });
-
             });
-
             var cuisineCount = -1;
             var cuisine = [];       //array holding the cuisines
             var imageLink = [];     //array containting the image link to the cuisines
@@ -187,23 +170,35 @@
                     });
                 var src = updataImage();
                 $("#avatar2Pic").attr("src",src);
+                $(".cuisineType").text(currentCuisine);
             });
             function updataImage(){
+                if(cuisineCount == cuisine.length-1){
+                    cuisineCount = -1;
+                }
                 cuisineCount++;
                 currentCuisine = cuisine[cuisineCount];
-                console.log(currentCuisine);
+            //    console.log(currentCuisine);
                 return  imageLink[cuisineCount];
             }
             
             var allRestaurants = new Array(20);
             var chineseRestaurants = new Array(20);
             var italianRestaurants = new Array(20);
+            var japaneseRestaurants = new Array(20);
+            var koreanRestaurants = new Array(20);
+            var americanRestaurants = new Array(20);
+            var mexicanRestaurants = new Array(20);
             d3.csv("foodTinder - Restaurant.csv",function(csv){
                 
                 var chineseIndexCount = 0;
                 var attrCount = 0;
                 
                 var italianIndexCount = 0;
+                var japaneseIndexCount = 0;
+                var koreanIndexCount = 0;
+                var americanIndexCount = 0;
+                var mexicanIndexCount = 0;
                 csv.map(function(d){
                     if(d.Cuisine == "Chinese"){
                         chineseRestaurants[chineseIndexCount] = new Array(4);
@@ -227,6 +222,50 @@
                         italianRestaurants[italianIndexCount][attrCount] = d.RestaurantImageLink;
                         italianIndexCount++;
                         attrCount = 0;
+                    }else if(d.Cuisine == "Japanese"){
+                        japaneseRestaurants[japaneseIndexCount] = new Array(4);
+                        japaneseRestaurants[japaneseIndexCount][attrCount] = d.RestaurantName;
+                        attrCount++;
+                        japaneseRestaurants[japaneseIndexCount][attrCount] = d.Rating;
+                        attrCount++;
+                        japaneseRestaurants[japaneseIndexCount][attrCount] = d.Price;
+                        attrCount++;
+                        japaneseRestaurants[japaneseIndexCount][attrCount] = d.RestaurantImageLink;
+                        japaneseIndexCount++;
+                        attrCount = 0;
+                    }else if(d.Cuisine == "Korean"){
+                        koreanRestaurants[koreanIndexCount] = new Array(4);
+                        koreanRestaurants[koreanIndexCount][attrCount] = d.RestaurantName;
+                        attrCount++;
+                        koreanRestaurants[koreanIndexCount][attrCount] = d.Rating;
+                        attrCount++;
+                        koreanRestaurants[koreanIndexCount][attrCount] = d.Price;
+                        attrCount++;
+                        koreanRestaurants[koreanIndexCount][attrCount] = d.RestaurantImageLink;
+                        koreanIndexCount++;
+                        attrCount = 0;
+                    }else if(d.Cuisine == "American"){
+                        americanRestaurants[americanIndexCount] = new Array(4);
+                        americanRestaurants[americanIndexCount][attrCount] = d.RestaurantName;
+                        attrCount++;
+                        americanRestaurants[americanIndexCount][attrCount] = d.Rating;
+                        attrCount++;
+                        americanRestaurants[americanIndexCount][attrCount] = d.Price;
+                        attrCount++;
+                        americanRestaurants[americanIndexCount][attrCount] = d.RestaurantImageLink;
+                        americanIndexCount++;
+                        attrCount = 0;
+                    }else if(d.Cuisine == "Mexican"){
+                        mexicanRestaurants[mexicanIndexCount] = new Array(4);
+                        mexicanRestaurants[mexicanIndexCount][attrCount] = d.RestaurantName;
+                        attrCount++;
+                        mexicanRestaurants[mexicanIndexCount][attrCount] = d.Rating;
+                        attrCount++;
+                        mexicanRestaurants[mexicanIndexCount][attrCount] = d.Price;
+                        attrCount++;
+                        mexicanRestaurants[mexicanIndexCount][attrCount] = d.RestaurantImageLink;
+                        mexicanIndexCount++;
+                        attrCount = 0;
                     }
                     
                 })
@@ -234,38 +273,50 @@
             
             allRestaurants[0] = chineseRestaurants;
             allRestaurants[1] = italianRestaurants;
-            console.log(allRestaurants);
+            allRestaurants[2] = mexicanRestaurants;
+            allRestaurants[3] = americanRestaurants;
+            allRestaurants[4] = japaneseRestaurants;
+            allRestaurants[5] = koreanRestaurants;
+        //    console.log(allRestaurants);
             var cuisineTypeIndex;
             function getRestaurants(){
                 
-                var cuisineTypes = ["Chinese","Italian","Korean", "Mediterranean", "American", "Cajun", "Greek", "Indian", "Thai", "Vietnamese"];
+                var cuisineTypes = ["Chinese","Italian","Mexican", "American", "Japanese", "Korean", "Mediterranean", "Cajun", "Greek", "Indian", "Thai", "Vietnamese"];
                
                 for(i = 0; i < cuisineTypes.length; i++){
                     if(currentCuisine == cuisineTypes[i]){
                         cuisineTypeIndex = i;
                     }
                 }
-                console.log(currentCuisine+" cuisine selected, its cuisine index is "+cuisineTypeIndex);
+       //         console.log(currentCuisine+" cuisine selected, its cuisine index is "+cuisineTypeIndex);
                 
                 
             }
     
             
             
-            restaurantsIndex = 0;
+            restaurantsIndex = -1;
             function updateRestaurants(parentDiv){
                 getRestaurants();
-            
+                if(restaurantsIndex == allRestaurants[cuisineTypeIndex].length-1){
+                    restaurantsIndex = -1;
+                }
+                restaurantsIndex++;
                 var imageUrl = "url("+allRestaurants[cuisineTypeIndex][restaurantsIndex][3]+")";
                     
                 $(parentDiv).find(".restaurantName").text(allRestaurants[cuisineTypeIndex][restaurantsIndex][0]);
-                $(parentDiv).find(".cuisineType").text(currentCuisine);
-                $(parentDiv).find(".rating").text(allRestaurants[cuisineTypeIndex][restaurantsIndex][1]);
+                $(parentDiv).find(".cuisineType").text(currentCuisine+" |");
+                
+                var rating = allRestaurants[cuisineTypeIndex][restaurantsIndex][1];
+                $(parentDiv).find(".rating").text(rating);
+                
+                
+                
                 $(parentDiv).find(".priceRange").text(allRestaurants[cuisineTypeIndex][restaurantsIndex][2]);
                  
                 $(parentDiv).find("img").attr("src", allRestaurants[cuisineTypeIndex][restaurantsIndex][3]);
                 
-                restaurantsIndex++;
+            //    $(parentDiv).find(".rating").children("img").attr("src", "images/4.png");
                 
             }
              
@@ -275,10 +326,14 @@
                 console.log($("#information").find("#randomInfo"));
             }
             
+            function goBack(){
+                $(".restaurantBlocks").hide();
+                $(".buddy").show();
+            }
+            
         </script>
              
        
 
     </body>
 </html>
-
