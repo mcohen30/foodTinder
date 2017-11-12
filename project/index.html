@@ -19,8 +19,36 @@
 
     <div id="container">
          <div class = "information">
-            <div id = "randomInfo"></div>
+            <div id = "randomInfo">
+                <div class="container info-page final">
+                <h2 class="center">Teresa Caffe</h2>
+
+            <div class="center">
+                <a href="https://www.facebook.com/TeresasCaffePrinceton/"><img src="images/fb.png"></a>
+                <a href="https://www.google.com/maps/place/Teresa+Caffe/@40.3505743,-74.6629758,17z/data=!3m1!4b1!4m5!3m4!1s0x89c3e6c056847f99:0xa8d61c2b6eebdd85!8m2!3d40.3505702!4d-74.6607818"><img src="images/google.jpg"></a>
+                <a href="https://www.yelp.com/biz/teresas-caffe-princeton-2"><img src="images/yelp.png"></a>
+            </div>
+                <h3>Location</h3>
+
+                    <p>23 Palmer Square East</p>
+                    <p>Princeton, NJ 08542-3714</p>
+            
+                    <h3>Contact</h3>
+                    <span>Tel: 609.921.1974 </span><br>
+
+            <h3>Hours of Operation</h3>
+                <h4>Monday-Thursday: </h4>
+                <span>11:00am to 11:00pm</span><br>
+                <h4>Friday: </h4>
+                <span>11:00am to 12:00am</span><br>
+                <h4>Saturday: </h4>
+                <span>9:00am to 12:00am</span><br>
+                <h4>Sunday</h4>
+                <span>9:00am to 10:00pm</span><br>
+
+            </div>
         </div>
+    </div>
 
         <div class="buddy"  id="buddy1" style="display: block;">
             <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
@@ -64,12 +92,14 @@
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
         <script>
+            var currentCuisine = "";
             $(window).on('touchstart',function(e){e.preventDefault()});
             
             $(document).ready(function(){
 
             $(".restaurantBlocks").hide();
             $(".buddy").show();
+            $(".information").hide();
                
             $(".restaurantBlocks").on("swiperight",function(){
                 console.log("rest swiped right");
@@ -78,7 +108,9 @@
                 //3. show rest data
               //  $(".information").show();
               //  document.getElementById("randomInfo").setAttribute("text", "hello");
-                 $(".information").find("#randomInfo").text("what up");
+                 $(".information").show();
+                 $(".restaurantBlocks").hide();
+                // $(".information").find("#randomInfo").text("what up");
                 
             });
             $(".restaurantBlocks").on("swipeleft",function(e){
@@ -134,6 +166,7 @@
                 theOtherImg=$(theOtherBuddy).find("img");
                 console.log("theOtherImg",theOtherImg);
                 theOtherImg.attr("src",src);
+                $(theOtherBody).find("cuisineType").text(currentCuisine)
 
                 $(this).addClass('rotate-right').delay(700).fadeOut(1);
                 $('.buddy').find('.status').remove();
@@ -146,7 +179,7 @@
             var cuisineCount = -1;
             var cuisine = [];       //array holding the cuisines
             var imageLink = [];     //array containting the image link to the cuisines
-            var currentCuisine = "";
+            
             d3.csv("foodTinder - Cuisine.csv",function(csv){
                     csv.map(function(d){
                         cuisine.push(d.CuisineName);
