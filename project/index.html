@@ -18,12 +18,15 @@
         
 
     <div id="container">
+         <div class = "information">
+            <div id = "randomInfo"></div>
+        </div>
 
         <div class="buddy"  id="buddy1" style="display: block;">
             <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
             <div class="info">
 
-                <div class = "cuisineType">0</div>
+                <div class = "cuisineType"></div>
 
             </div>
         </div>
@@ -40,7 +43,7 @@
         <div class = "restaurantBlocks" id = "restaurant1">
             <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>
                 <h2 class = "restaurantName"></h2>
-                <div class = "cuisineType">0</div>
+                <div class = "cuisineType"></div>
                 <div class = "rating"></div>
                 <div class = "priceRange"></div>
         </div>
@@ -52,6 +55,8 @@
                  <div class = "priceRange"></div>
 
         </div>
+        
+       
 
     </div>
 
@@ -65,16 +70,15 @@
 
             $(".restaurantBlocks").hide();
             $(".buddy").show();
-            
-                
+               
             $(".restaurantBlocks").on("swiperight",function(){
                 console.log("rest swiped right");
-
-                
                 //1. swipe right animation
                 //2. hide all restarants
                 //3. show rest data
-                
+              //  $(".information").show();
+              //  document.getElementById("randomInfo").setAttribute("text", "hello");
+                 $(".information").find("#randomInfo").text("what up");
                 
             });
             $(".restaurantBlocks").on("swipeleft",function(e){
@@ -233,6 +237,10 @@
             }
              
             
+            function updateInformation(){
+                $("#information").find("#randomInfo").text("wassup");
+                console.log($("#information").find("#randomInfo"));
+            }
             
         </script>
              
