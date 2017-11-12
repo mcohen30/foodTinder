@@ -4,15 +4,17 @@
     <head>
         <meta charset="utf-8">
     
-        <title>FoodMe</title>
-        <link rel="stylesheet" href="style.css">
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+       <link rel="stylesheet" href="style.css">
+  
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
 
     </head>
     <body>
        
         
-    <h1 class="center">FoodMe</h1>
+    <h1 class="center">Tinder For Food</h1>
         
 
     <div id="container">
@@ -21,7 +23,7 @@
             <div id ="avatar1" class="avatar" style="display: block;"><img id = "avatar1Pic" src=""/></div>
             <div class="info">
 
-                <div class = "cuisineType"></div>
+                <div class = "cuisineType">0</div>
 
             </div>
         </div>
@@ -38,7 +40,7 @@
         <div class = "restaurantBlocks" id = "restaurant1">
             <div class = "restImg" id = "restDiv1"><img id = "restImg1" /></div>
                 <h2 class = "restaurantName"></h2>
-                <div class = "cuisineType"></div>
+                <div class = "cuisineType">0</div>
                 <div class = "rating"></div>
                 <div class = "priceRange"></div>
         </div>
@@ -62,6 +64,8 @@
             $(document).ready(function(){
 
             $(".restaurantBlocks").hide();
+            $(".buddy").show();
+            
                 
             $(".restaurantBlocks").on("swiperight",function(){
                 console.log("rest swiped right");
@@ -70,6 +74,8 @@
                 //1. swipe right animation
                 //2. hide all restarants
                 //3. show rest data
+                
+                
             });
             $(".restaurantBlocks").on("swipeleft",function(e){
                 //1. get the next data
@@ -84,7 +90,7 @@
                 
                 updateRestaurants(otherDiv);
                 
-                 $(this).addClass('rotate-right').delay(700).fadeOut(1);
+                $(this).addClass('rotate-right').delay(700).fadeOut(1);
                 $(otherDiv).removeClass('rotate-left rotate-right').fadeIn(300);
                 
             });
@@ -97,7 +103,7 @@
                       console.log("buddy swiped right");
                       $(".restaurantBlocks").fadeIn();
                       //load data, shiw the first one
-                      
+                      updateRestaurants($("#restaurant2"))
                       
                   });
                   $('.buddy').find('.status').remove();
@@ -133,27 +139,26 @@
 
             });
 
-            
-            var divAnimationToggle = true;
             var cuisineCount = -1;
             var cuisine = [];       //array holding the cuisines
             var imageLink = [];     //array containting the image link to the cuisines
-            console.log(imageLink);
             var currentCuisine = "";
             d3.csv("foodTinder - Cuisine.csv",function(csv){
                     csv.map(function(d){
                         cuisine.push(d.CuisineName);
                         imageLink.push(d.CuisineImageLink);
                     });
-                updataImage();
+                var src = updataImage();
+                $("#avatar2Pic").attr("src",src);
             });
             function updataImage(){
                 cuisineCount++;
                 currentCuisine = cuisine[cuisineCount];
+                console.log(currentCuisine);
                 return  imageLink[cuisineCount];
             }
-            var allRestaurants = new Array(20);
             
+            var allRestaurants = new Array(20);
             var chineseRestaurants = new Array(20);
             var italianRestaurants = new Array(20);
             d3.csv("foodTinder - Restaurant.csv",function(csv){
